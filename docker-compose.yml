@@ -1,0 +1,51 @@
+version: '3.7'
+
+services:
+ laravel_app:
+  build:
+   args:
+    user: germanmdd
+    uid: 1001
+   context: ./
+   dockerfile: Dockerfile
+  image: laravel
+  container_name: laravel-app
+  restart: unless-stopped
+  working_dir: /usr/share/nginx/html
+  volumes:
+    - /media/psf/Home/www/laravel/src:/usr/share/nginx/html
+  networks:
+    - laravel
+
+ laravel_db:
+  image: mariadb
+  container_name: laravel-db
+  restart: unless-stopped
+  environment:
+    MYSQL_DATABASE: laraveldb
+    MYSQL_ROOT_PASSWORD: 123123
+    MYSQL_PASSWORD: 123123
+    MYSQL_USER: root
+  volumes:
+  - laraveldata:/var/lib/mysq
+  networks:
+  - laravel
+
+ nginx_laravel:
+  image: nginx
+  volumes:
+  - /media/psf/Home/www/laravel/src:/usr/share/nginx/html
+  - /media/psf/Home/www/laravel:/etc/nginx/conf.d
+  ports:
+  -  "8000:80"
+  networks:
+  - laravel
+
+networks:
+  laravel:
+    driver: bridge
+
+volumes:
+ laraveldata:
+   name: laraveldata
+   external: true
