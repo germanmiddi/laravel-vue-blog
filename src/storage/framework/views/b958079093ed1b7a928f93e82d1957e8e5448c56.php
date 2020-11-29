@@ -1,11 +1,20 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Hola</h1>
         <div class="col-md-8">
             <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="card mb-4">
                 <div class="card-body">
+                    <?php if($post->image): ?>
+                        <img src="<?php echo e($post->get_image); ?>" class="card-img-top">
+                    <?php elseif($post->iframe): ?>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <?php echo $post->iframe; ?>
+
+                    </div>
+                    
+                    <?php endif; ?>
+
                     <h5 class="card-title"><?php echo e($post->title); ?></h5>
                     <p class="card-text"> 
                         <?php echo e($post->get_excerpt); ?>
@@ -19,9 +28,6 @@
                     </p>
                 </div>
             </div>
-
-
-
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             
             <?php echo e($posts->links()); ?>

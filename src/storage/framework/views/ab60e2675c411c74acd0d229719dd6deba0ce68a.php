@@ -5,6 +5,16 @@
         <div class="col-md-8">
             <div class="card mb-4">
                 <div class="card-body">
+                    <?php if($post->image): ?>
+                        <img src="<?php echo e($post->get_image); ?>" class="card-img-top">
+                    <?php elseif($post->iframe): ?>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <?php echo $post->iframe; ?>
+
+                    </div>
+                    
+                    <?php endif; ?>
+
                     <h5 class="card-title"><?php echo e($post->title); ?></h5>
                     <p class="card-text"> 
                         <?php echo e($post->body); ?>
