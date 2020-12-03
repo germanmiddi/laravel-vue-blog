@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         factory(App\Post::class, 24)->create();
+        factory(App\Models\Category::class, 8)->create();
     }
 }

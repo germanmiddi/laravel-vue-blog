@@ -22,4 +22,10 @@ class PageController extends Controller
         return view('post', ['post' => $post]);
         
     }    
+
+    public function categorias(){
+
+        return view('categories.index');
+
+    }
 }
