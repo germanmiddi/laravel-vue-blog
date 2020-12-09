@@ -9,9 +9,11 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import CKEditor from 'ckeditor4-vue';
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)
+Vue.use( CKEditor );
 
 /**
  * The following block of code may be used to automatically register your
@@ -25,8 +27,9 @@ Vue.use(BootstrapVue)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('categories-component', require('./components/CategoriesComponent.vue').default);
-Vue.component('categories-form-component', require('./components/CategoriesFormComponent.vue').default);
+Vue.component('categories-component', require('./components/categories/CategoriesComponent.vue').default);
+Vue.component('categories-form-component', require('./components/categories/CategoriesFormComponent.vue').default);
+Vue.component('post-form-component', require('./components/posts/PostFormComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

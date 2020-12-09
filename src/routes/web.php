@@ -21,12 +21,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('posts', 'Backend\PostController')
-    ->middleware('auth')
-    ->except('show');
+// Route::resource('posts', 'Backend\PostController')
+//     ->middleware('auth')
+//     ->except('show');
 
-Route::resource('categories', 'Backend\CategoryController')
-    ->middleware('auth');
+// Route::resource('categories', 'Backend\CategoryController')
+//     ->middleware('auth');
 
-
+// Route::apiResource('categories', 'Backend\CategoryController');
     

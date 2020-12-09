@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Http\Request\CategoryRequest;
+// use App\Http\Request\CategoryRequest;
+use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -19,17 +20,7 @@ class CategoryController extends Controller
     {
         // return view('categories.index');
 
-        return Category::all('title');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Category::all('id', 'title');
     }
 
     /**
@@ -38,7 +29,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(Request $request)
     {
         //
         $category = Category::create($request->all());
@@ -46,27 +37,6 @@ class CategoryController extends Controller
         return $category;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
