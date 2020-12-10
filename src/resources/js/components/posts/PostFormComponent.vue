@@ -35,7 +35,7 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Enviar" class="btn btn-sm btn-primary">
+                <input type="submit" value="Enviar" class="btn btn-sm btn-primary" @click="create">
             </div>
             </form>
 
