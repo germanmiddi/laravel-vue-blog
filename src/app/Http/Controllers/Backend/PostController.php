@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Post;
+use App\Models\Post;
 use App\Http\Requests\PostRequest;
 
 use Illuminate\Support\Facades\Storage;
@@ -18,9 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
-
-        return view('posts.index', compact('posts') );
+        return view('posts.index');
     }
 
     /**
@@ -39,19 +37,19 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
-    {
-        $post = Post::create([
-                'user_id' => auth()->user()->id
-        ] + $request->all());
+    // public function store(PostRequest $request)
+    // {
+    //     $post = Post::create([
+    //             'user_id' => auth()->user()->id
+    //     ] + $request->all());
 
-        if($request->file('file')){
-            $post->image = $request->file('file')->store('posts', 'public');
-            $post->save();
-        }
+    //     if($request->file('file')){
+    //         $post->image = $request->file('file')->store('posts', 'public');
+    //         $post->save();
+    //     }
 
-        return back()->with('status', 'Creado con exito');
-    }
+    //     return back()->with('status', 'Creado con exito');
+    // }
 
     /**
      * Show the form for editing the specified resource.

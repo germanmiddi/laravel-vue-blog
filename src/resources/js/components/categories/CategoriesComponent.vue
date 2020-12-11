@@ -4,11 +4,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Categorias</div>
-
-                    <!-- <div class="card-body">
-                        Hello baby.
-                    </div> -->
-                    <b-table hover :items="items" :key="items.id"></b-table>                
+                    <b-table hover :items="items" :key="items.id"></b-table>
                 </div>
 
             </div>

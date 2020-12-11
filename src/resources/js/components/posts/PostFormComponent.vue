@@ -22,6 +22,8 @@
             <div class="form-group">
                 <label>Imagen</label>
                 <input type="file" name="file" @change="imageChanged">
+
+                <img :src="imagepreview" class="figure-img img-fluid rounded"  style="max-height:100px;">                
             </div>                    
 
             <div class="form-group">
@@ -30,12 +32,12 @@
             </div>
 
             <div class="form-group">
-                <label>Cotenido embebido</label>
+                <label>Cotenido destacado</label>
                 <textarea name="iframe" class="form-control" v-model="fields.iframe"></textarea>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Enviar" class="btn btn-sm btn-primary" @click="create">
+                <input value="Enviar" class="btn btn-sm btn-primary" @click="create">
             </div>
             </form>
 
@@ -50,27 +52,25 @@ export default {
         return {
             categories: null,
             editorConfig: {}, // The configuration of the editor.
-            fields: {}
+            fields: {},
+            imagepreview: null,
         }
     },
     methods:{
         imageChanged(e){
             var fileReader = new FileReader()
-
             fileReader.readAsDataURL(e.target.files[0])
-      
             fileReader.onload = (e) => {
                 this.fields.image = e.target.result
-
+                this.imagepreview = e.target.result
             }
-      },
-      create(){
-
-          axios.post('', this.fields)
-          .then(response => {
-              console.log(response)
-          })
-      }
+        },
+        create(){
+            axios.post('/posteos', this.fields)
+            .then(response => {
+                console.log(response)
+            })
+        }
     },
     mounted(){
         axios.get('/api/categories')

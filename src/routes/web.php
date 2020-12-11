@@ -25,6 +25,8 @@ Route::resource('posts', 'Backend\PostController')
     ->middleware('auth')
     ->except('show');
 
+Route::apiResource('posteos', 'Api\\PostController');
+
 // Route::resource('categories', 'Backend\CategoryController')
 //     ->middleware('auth');
 
