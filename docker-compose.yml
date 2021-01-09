@@ -13,7 +13,7 @@ services:
   restart: unless-stopped
   working_dir: /usr/share/nginx/html
   volumes:
-    - /media/psf/Home/www/laravel/src:/usr/share/nginx/html
+    - /media/psf/Home/www/laravel2/src:/usr/share/nginx/html
   networks:
     - laravel
 
@@ -34,8 +34,8 @@ services:
  nginx_laravel:
   image: nginx
   volumes:
-  - /media/psf/Home/www/laravel/src:/usr/share/nginx/html
-  - /media/psf/Home/www/laravel:/etc/nginx/conf.d
+  - /media/psf/Home/www/laravel2/src:/usr/share/nginx/html
+  - /media/psf/Home/www/laravel2:/etc/nginx/conf.d
   ports:
   -  "8000:80"
   networks:
