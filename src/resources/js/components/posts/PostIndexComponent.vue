@@ -19,8 +19,9 @@
             :per-page="perPage"
             >
 
+                <!-- <template #cell(actions)="row"> -->
                 <template #cell(actions)="row">
-                    <b-button pill variant="outline-primary" class="mr-2" ><b-icon-pencil></b-icon-pencil></b-button>
+                    <b-button pill variant="outline-primary" @click="editPost(row.item.id)" class="mr-2" ><b-icon-pencil></b-icon-pencil></b-button>
                     <b-button pill variant="outline-danger" class="mr-2" ><b-icon-trash></b-icon-trash></b-button>
                 </template>
             </b-table>
@@ -65,6 +66,10 @@
         methods:{
             goToCreatePost(){
                 window.location = '/posts/create'
+            },
+            editPost(id){
+                console.log(id)
+                window.location = `/posts/edit/${id}`
             }
         },
         mounted(){

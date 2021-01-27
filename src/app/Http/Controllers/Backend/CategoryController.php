@@ -18,9 +18,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // return view('categories.index');
+        return view('categories.index');
 
-        return Category::all('id', 'title');
+        // return Category::all('id', 'title');
     }
 
     /**
@@ -59,5 +59,10 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function listAll(){
+
+        return Category::all('id', 'title');
     }
 }

@@ -53,6 +53,9 @@
                             <li class="nav-item">
                                 <a href="<?php echo e(route('posts.index')); ?>" class="nav-link">Articulos</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="<?php echo e(route('categories.index')); ?>" class="nav-link">Categorías</a>
+                            </li>                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <?php echo e(Auth::user()->name); ?>

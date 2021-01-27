@@ -13,22 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*PageController es el Controller para manejar el front*/
 Route::get('/', 'PageController@posts');
 Route::get('blog/{post}', 'PageController@post')->name('post');
-Route::get('categorias', 'PageController@categorias')->name('categorias');
+// Route::get('/categorias', 'PageController@categorias')->name('categorias');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+/*Recursos de backend*/
 Route::resource('posts', 'Backend\PostController')
     ->middleware('auth')
     ->except('show');
 
 Route::apiResource('posteos', 'Api\\PostController');
 
-// Route::resource('categories', 'Backend\CategoryController')
-//     ->middleware('auth');
+Route::resource('categories', 'Backend\CategoryController')
+    ->middleware('auth');
 
-// Route::apiResource('categories', 'Backend\CategoryController');
+Route::apiResource('categorias', 'Api\\CategoryController');
     

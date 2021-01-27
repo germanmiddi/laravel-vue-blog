@@ -28,9 +28,10 @@
             }
         },
         mounted() {
-            axios.get('/categories')
+            axios.get('/categorias')
             .then((response) => {
-                this.items = response.data
+                console.log(response.data)
+                this.items = response.data.data
             })
             console.log('Component mounted.')
         }

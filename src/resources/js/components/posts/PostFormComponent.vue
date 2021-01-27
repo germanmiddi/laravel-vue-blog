@@ -73,7 +73,7 @@ export default {
         }
     },
     mounted(){
-        axios.get('/api/categories')
+        axios.get('/categorias')
         .then((response) => {
             this.categories = response.data.data
         })
