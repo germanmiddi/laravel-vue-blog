@@ -25,10 +25,12 @@ class CreatePostsTable extends Migration
 
             $table->text('body');
             $table->text('iframe')->nullable();
-            
+            $table->bigInteger('category_id')->unsigned();
+
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

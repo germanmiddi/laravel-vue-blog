@@ -5,6 +5,7 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\Models\Category;
 
 class Post extends Model
 {
@@ -12,7 +13,7 @@ class Post extends Model
     use Sluggable;
     
     protected $fillable = [
-        'title', 'body', 'iframe','image', 'user_id'
+        'title', 'body', 'iframe','image', 'user_id', 'category_id'
     ];
 
     /**
@@ -48,5 +49,9 @@ class Post extends Model
         return url("storage/$this->image");
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }

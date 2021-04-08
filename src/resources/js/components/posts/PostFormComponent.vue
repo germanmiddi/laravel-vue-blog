@@ -48,6 +48,7 @@
 
 <script>
 export default {
+    props:['post'],
     data(){
         return {
             categories: null,
@@ -77,7 +78,17 @@ export default {
         .then((response) => {
             this.categories = response.data.data
         })
-    }    
+
+            this.fields.title = this.post.title
+            this.fields.body = this.post.body
+            this.fields.iframe = this.post.iframe
+
+    },
+    created(){
+
+        this.fields.category_id = this.post.id
+    }
+    
 }
 
 </script>

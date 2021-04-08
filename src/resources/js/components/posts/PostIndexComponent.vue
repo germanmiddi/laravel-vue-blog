@@ -69,7 +69,7 @@
             },
             editPost(id){
                 console.log(id)
-                window.location = `/posts/edit/${id}`
+                window.location.href = `/posts/${id}/edit`
             }
         },
         mounted(){
@@ -78,7 +78,7 @@
                 this.items = response.data.data
                 this.totalRows = this.items.length
             })
-            console.log('Component mounted.')            
+            console.log('Component mounted.')              
         }    
     }
 
