@@ -47,7 +47,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->title = $request->title;
+        $category->save();
+
+        return $category;
     }
 
     /**

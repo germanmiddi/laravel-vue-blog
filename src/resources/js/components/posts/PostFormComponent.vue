@@ -27,6 +27,15 @@
             </div>                    
 
             <div class="form-group">
+                <label for="status">Estado</label>
+                <select class="form-control" id="status" name="status" v-model="fields.status_id">
+                    <option v-for="stat in status" :key="status.id"
+                            :value="stat.id">{{ stat.title }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label>Cotenido *</label>
                 <ckeditor v-model="fields.body" :config="editorConfig"></ckeditor>
             </div>

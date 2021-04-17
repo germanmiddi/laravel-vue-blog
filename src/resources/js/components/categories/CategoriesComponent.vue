@@ -67,7 +67,7 @@
 					title: upcategory.new_title
 				};
 
-				axios.put("/categories", params)
+				axios.put(`/categories/${upcategory.id}`, params)
 				.then(response => {
 					console.log(response);
 				});
