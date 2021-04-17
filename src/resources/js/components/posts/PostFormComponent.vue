@@ -79,9 +79,10 @@ export default {
             this.categories = response.data.data
         })
 
-            this.fields.title = this.post.title
-            this.fields.body = this.post.body
-            this.fields.iframe = this.post.iframe
+            this.fields.title       = this.post.title
+            this.fields.body        = this.post.body
+            this.fields.iframe      = this.post.iframe
+            this.fields.category_id = this.post.category_id 
 
     },
     created(){

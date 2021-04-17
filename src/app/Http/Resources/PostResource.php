@@ -17,6 +17,8 @@ class PostResource extends JsonResource
         return [
             'id'         => $this->id,
             'title'      => $this->title,
+            'category_id' => $this->category_id,
+            'categoria' => $this->category->title,
             'created_at' => $this->created_at->format('d-m-Y H:i:s')
         ];
 

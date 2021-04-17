@@ -52,6 +52,8 @@
                 fields: [
                         { key: 'id',    label: 'ID', sortable: true, sortDirection: 'desc' },
                         { key: 'title', label: 'Título'},
+                        { key: 'category_id', label: 'Categoria'},
+                        { key: 'categoria', label: 'titulo'},
                         { key: 'created_at', label: 'Creado', sortable: true},
                         { key: 'actions', label: 'Actions' }
                 ],
