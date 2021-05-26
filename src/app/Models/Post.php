@@ -13,7 +13,7 @@ class Post extends Model
     use Sluggable;
     
     protected $fillable = [
-        'title', 'body', 'iframe','image', 'user_id', 'category_id'
+        'title', 'body', 'iframe','image', 'user_id', 'category_id', 'status_id'
     ];
 
     /**
@@ -54,4 +54,8 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function status()
+    {
+        return $this->belongsTo(PostStatu::class);
+    }
 }

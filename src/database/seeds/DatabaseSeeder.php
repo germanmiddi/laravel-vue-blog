@@ -24,13 +24,6 @@ class DatabaseSeeder extends Seeder
             'title' => 'Agenda',
         ]);
 
-        App\Models\Post::create([
-            'user_id'   => 1,
-            'title'     => 'Primer Post',
-            'body'      => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis deserunt quisquam dolore iusto impedit repellendus quam odio porro laborum harum facilis non accusantium ducimus, est dolores amet ab temporibus numquam.',
-            'category_id' => 1,
-        ]);
-
         App\Models\PostStatu::create([
             'status_txt'     => 'Borrador',
         ]);
@@ -42,6 +35,16 @@ class DatabaseSeeder extends Seeder
         App\Models\PostStatu::create([
             'status_txt'     => 'Oculta',
         ]);
+        
+        App\Models\Post::create([
+            'user_id'   => 1,
+            'title'     => 'Primer Post',
+            'body'      => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis deserunt quisquam dolore iusto impedit repellendus quam odio porro laborum harum facilis non accusantium ducimus, est dolores amet ab temporibus numquam.',
+            'category_id' => 1,
+            'status_id'   => 1
+        ]);
+
+
 
 
         //factory(App\Models\Category::class, 8)->create();

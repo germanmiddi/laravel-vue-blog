@@ -33,4 +33,6 @@ Route::resource('categories', 'Backend\CategoryController')
     ->middleware('auth');
 
 Route::apiResource('categorias', 'Api\\CategoryController');
+
+Route::apiResource('post_status', 'Api\\StatusController');
     
